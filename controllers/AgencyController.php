@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\agency;
+use app\models\Agency;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
- * AgencyController implements the CRUD actions for agency model.
+ * AgencyController implements the CRUD actions for Agency model.
  */
 class AgencyController extends Controller
 {
@@ -39,13 +39,13 @@ class AgencyController extends Controller
     }
 
     /**
-     * Lists all agency models.
+     * Lists all Agency models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => agency::find(),
+            'query' => Agency::find(),
         ]);
 
         return $this->render('index', [
@@ -54,7 +54,7 @@ class AgencyController extends Controller
     }
 
     /**
-     * Displays a single agency model.
+     * Displays a single Agency model.
      * @param integer $id
      * @return mixed
      */
@@ -66,13 +66,13 @@ class AgencyController extends Controller
     }
 
     /**
-     * Creates a new agency model.
+     * Creates a new Agency model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new agency();
+        $model = new Agency();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -84,7 +84,7 @@ class AgencyController extends Controller
     }
 
     /**
-     * Updates an existing agency model.
+     * Updates an existing Agency model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -103,7 +103,7 @@ class AgencyController extends Controller
     }
 
     /**
-     * Deletes an existing agency model.
+     * Deletes an existing Agency model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +116,15 @@ class AgencyController extends Controller
     }
 
     /**
-     * Finds the agency model based on its primary key value.
+     * Finds the Agency model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return agency the loaded model
+     * @return Agency the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = agency::findOne($id)) !== null) {
+        if (($model = Agency::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
