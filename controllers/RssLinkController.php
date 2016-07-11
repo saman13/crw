@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\models\Agency;
 use app\models\Category;
 use Yii;
-use app\models\rssLink;
+use app\models\RssLink;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 use yii\filters\AccessControl;
 
 /**
- * RssLinkController implements the CRUD actions for rssLink model.
+ * RssLinkController implements the CRUD actions for RssLink model.
  */
 class RssLinkController extends Controller
 {
@@ -42,13 +42,13 @@ class RssLinkController extends Controller
     }
 
     /**
-     * Lists all rssLink models.
+     * Lists all RssLink models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => rssLink::find(),
+            'query' => RssLink::find(),
         ]);
 
         return $this->render('index', [
@@ -57,7 +57,7 @@ class RssLinkController extends Controller
     }
 
     /**
-     * Displays a single rssLink model.
+     * Displays a single RssLink model.
      * @param integer $id
      * @return mixed
      */
@@ -69,13 +69,13 @@ class RssLinkController extends Controller
     }
 
     /**
-     * Creates a new rssLink model.
+     * Creates a new RssLink model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new rssLink();
+        $model = new RssLink();
         $category = ArrayHelper::map(Category::find()->all(), 'id', 'name');
         $agency = ArrayHelper::map(Agency::find()->all(), 'id', 'name');
 
@@ -91,7 +91,7 @@ class RssLinkController extends Controller
     }
 
     /**
-     * Updates an existing rssLink model.
+     * Updates an existing RssLink model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -114,7 +114,7 @@ class RssLinkController extends Controller
     }
 
     /**
-     * Deletes an existing rssLink model.
+     * Deletes an existing RssLink model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -127,15 +127,15 @@ class RssLinkController extends Controller
     }
 
     /**
-     * Finds the rssLink model based on its primary key value.
+     * Finds the RssLink model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return rssLink the loaded model
+     * @return RssLink the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = rssLink::findOne($id)) !== null) {
+        if (($model = RssLink::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
