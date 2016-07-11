@@ -267,8 +267,6 @@ class TestController extends Controller
                 }
 
             }
-
-            die();
         }
     }
 
